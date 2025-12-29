@@ -25,7 +25,7 @@
     % figure;
     % imshow(img_matrix);
     % title(sprintf('Index: %d | Label Real: %d', idx, Y_train(idx)));
-    % fprintf('Daca vezi cifra %d, totul e corect!\n', Y_train(idx));
+
 
 
 %% ----------------------------------Transformare-Y-in-One-Hot--------------------------------------------------
@@ -86,7 +86,7 @@
 
         end
         
-        [A2_test,~] = forw_prop(X_test,parameters);
+        [A2_test] = forw_prop(X_test,parameters);
         final_acc = accuracy(A2_test, Y_test);
     
         fprintf('Acuratetea finala pe 10k imagini noi %.2f%%\n',final_acc);    
@@ -99,7 +99,7 @@
 
     fprintf('Rulam  acum testul pe datele de test\n');
    
-    [A2_test,~] = forw_prop(X_test,parameters);
+    [A2_test] = forw_prop(X_test,parameters);
     final_acc = accuracy(A2_test, Y_test);
 
     fprintf('Acuratetea finala pe 10k imagini noi %.2f%%\n',final_acc);
