@@ -1,15 +1,10 @@
-function gui(parameters,X_test,Y_test)
+function gui(parameters)
     % nargin - numaru de argumente input
     % if nargin < 4
     %     fprintf('Parametrii random/n');
     %     W1 = randn(128, 784) * 0.01; b1 = zeros(128, 1);
     %     W2 = randn(10, 128) * 0.01;  b2 = zeros(10, 1);
     % end
-
-    W1 = parameters.W1;
-    b1 = parameters.b1;
-    W2 = parameters.W2;
-    b2 = parameters.b2;
 
     f = figure('Name', 'Proiect GAC OCR', ...
                'NumberTitle', 'off', ...
@@ -133,7 +128,7 @@ function gui(parameters,X_test,Y_test)
         if isempty(rows)
             img_final = zeros(28,28);
         end
-        % incearca si cu poza nescalata
+        
         % gasit 'kernel'
         sus = min(rows);
         jos = max(rows);
@@ -170,7 +165,7 @@ function gui(parameters,X_test,Y_test)
         if poz*100 < 80
             fprintf('Predictie: %d Siguranta: %.1f%% (nu prea sigur)\n', val-1, poz*100);
         else
-            fprintf('Predictie: %d Siguranta: %.1f%%\n (destul de sigur)', val-1, poz*100);
+            fprintf('Predictie: %d Siguranta: %.1f%% (destul de sigur)\n', val-1, poz*100);
         end
 
         if poz*100 < 80

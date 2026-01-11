@@ -1,23 +1,7 @@
-    % vectorizare_mnist(timg_file,tlab_file,bimg_file,blab_file)
-   addpath('functii');
-
-    timg_file = 'D:\matlab_proiecte\proiect_ocr\mnist\train-images.idx3-ubyte';
-    tlab_file = 'D:\matlab_proiecte\proiect_ocr\mnist\train-labels.idx1-ubyte';
-    bimg_file = 'D:\matlab_proiecte\proiect_ocr\mnist\t10k-images.idx3-ubyte';
-    blab_file = 'D:\matlab_proiecte\proiect_ocr\mnist\t10k-labels.idx1-ubyte';
-    
-    % X = "pozele", Y = labels
-    
-    [X_train,Y_train,X_test,Y_test] = vectorizare_mnist(timg_file,tlab_file,bimg_file,blab_file);
-    
-    % X_train = gpuArray(X_train);
-    % Y_train = gpuArray(Y_train);
-    % X_test  = gpuArray(X_test );
-    % Y_test  = gpuArray(Y_test );
-    % 
+function [] = train(X_test,Y_test,X_train,Y_train,parameters)
 
 
-%% ----------------------------------CHECK-DATA(si vizualizare poze)--------------------------------------------------------
+%% ----------------------------------CHECK-DATA(si vizualizare poze) - optional --------------------------------------------------------
 
     % idx = randi(size(X_train, 2)); 
     % img_vector = X_train(:, idx);
@@ -53,7 +37,10 @@
     hidden_nodes = 128; % modificabil
     output_nodes = 10;  
     
-    % parameters = init_params(input_nodes,hidden_nodes,output_nodes);
+    if nargin < 5
+        fprintf("Nu s-au introdus parametrii, incepe antrenarea ... \n");
+        parameters = init_params(input_nodes,hidden_nodes,output_nodes);
+    end
     % verificare
     % disp('dimensiune w1: '); disp(size(parameters.W1));
 

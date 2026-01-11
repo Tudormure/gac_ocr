@@ -10,12 +10,12 @@ function [timages,tlabels,bimages,blabels] = vectorizare_mnist(timg_file,tlab_fi
             fid = fopen(timg_file, 'r', 'b'); %'b' - inseamna pentru Big-Endian format
         
             if fid == -1
-                 fprintf("test");
+                 % fprintf("test");
                  error("Nu s-a putut deschide fisierul: %s", timg_file);
             end
             
             % citim header-ul 4 int pe 32 bits
-            magic_num_timg  = fread(fid,1,'int32'); %semantura digitala care ne spune ca avem 08*03 (2051), utila cand nu stim ce tip de date sunt
+            magic_num_timg  = fread(fid,1,'int32'); %semantura digitala care ne spune ca avem 08*03 (2051), utila cand nu stim ce tip de date sunt, ii dam skip
             num_timg        = fread(fid,1,'int32');
             rows_timg       = fread(fid,1,'int32');
             cols_timg       = fread(fid,1,'int32');
