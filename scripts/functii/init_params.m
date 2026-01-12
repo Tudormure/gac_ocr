@@ -12,10 +12,10 @@ function params= init_params(in_size,hidden_size,out_size)
     
     %--------------------Strat 1: poze->hidden layer--------------------
         % matricea pt weights * 0.01 
-        params.W1 = randn(hidden_size,in_size)*0.01;%,'gpuArray'
+        params.W1 = randn(hidden_size,in_size,'gpuArray')*0.01;%,
         % matricea pt bias
-        params.b1 = zeros(hidden_size,1);%,'gpuArray'
+        params.b1 = zeros(hidden_size,1,'gpuArray');%,'gpuArray'
     %-------------------Strat 2: hidden layer-output-------------------
-        params.W2 = randn(out_size,hidden_size)*0.01;%,'gpuArray'
-        params.b2 = zeros(out_size,1);%,'gpuArray'
+        params.W2 = randn(out_size,hidden_size,'gpuArray')*0.01;%,'gpuArray'
+        params.b2 = zeros(out_size,1,'gpuArray');%,'gpuArray'
 end
