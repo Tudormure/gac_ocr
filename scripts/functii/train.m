@@ -49,7 +49,7 @@ function [] = train(X_test,Y_test,X_train,Y_train,parameters)
  %% ----------------------------------Antrenarea----------------------------------------------------------------------
     
     fprintf('Incepem antrenarea\n');
-    epoci = 1000;
+    epoci = 100;
     learning_rate = 0.5;
 
     cost_history = zeros(1,epoci); %pentru grafic final daca fac gui pt antrenare
@@ -92,7 +92,14 @@ function [] = train(X_test,Y_test,X_train,Y_train,parameters)
     fprintf('Acuratetea finala pe 10k imagini noi %.2f%%\n',final_acc);
 
 
-
+%% ----------------------------------VIZUALIZARE GRAFIC COST--------------------------------------------------------
+    
+    % figure('Name', 'Evolutia Antrenarii', 'NumberTitle', 'off'); 
+    % plot(1:epoci, cost_history, 'LineWidth', 2, 'Color', 'b');
+    % title('Evolutia Functiei de Cost');
+    % xlabel('Epoci');
+    % ylabel('Cost (Loss)');
+    % grid on; 
 
 
 
