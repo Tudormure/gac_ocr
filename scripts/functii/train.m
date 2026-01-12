@@ -1,4 +1,4 @@
-function [] = train(X_test,Y_test,X_train,Y_train,parameters)
+function [parameters] = train(X_test,Y_test,X_train,Y_train,parameters)
 
 
 %% ----------------------------------CHECK-DATA(si vizualizare poze) - optional --------------------------------------------------------
@@ -49,7 +49,7 @@ function [] = train(X_test,Y_test,X_train,Y_train,parameters)
  %% ----------------------------------Antrenarea----------------------------------------------------------------------
     
     fprintf('Incepem antrenarea\n');
-    epoci = 100;
+    epoci = 10;
     learning_rate = 0.5;
 
     cost_history = zeros(1,epoci); %pentru grafic final daca fac gui pt antrenare
